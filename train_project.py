@@ -8,7 +8,8 @@
 
 # Class called Account is defined with a constructor that takes two arguments: username and password. The class also defines a method called check_password which takes a single argument password and returns a boolean indicating whether the input password matches the stored password.
 
-# --------------------- PROJECT : RAILWAY TICKET BOOKING -----------------------
+# --------------------- PROJECT : RAILWAY TICKET BOOKING -----------------------#
+# i need some time to  complete requirments
 
 import random
 # We start by importing the random module, which we'll use to generate random PNRs for the tickets later on.
