@@ -46,13 +46,14 @@ class Train():
 #     We define a book_tickets() method for the Train class, which takes a number of tickets as input and attempts to book that many tickets on the train. If there are enough available seats, the method generates a list of random PNRs equal to the number of tickets being booked, updates the number of available seats, and returns the list of PNRs. Otherwise, the method returns None to indicate that the booking failed.
 # The book_tickets method takes in the number of tickets to be booked and returns a list of PNR numbers for the tickets if they are available, or None if there are not enough seats.
 
-
+### Modified: Added coach_type parameter
 class Passenger:
-    def __init__(self, name, age, gender, phone):
+    def __init__(self, name, age, gender, phone,coach_type):
         self.name = name
         self.age = age
         self.gender = gender
         self.phone = phone
+        self.coach_type = coach_type
 # The Passenger class is defined, which takes in four parameters - name, age, gender, and phone. These parameters are used to initialize the attributes of the Passenger object.
 
     def display_info(self):
@@ -60,6 +61,7 @@ class Passenger:
         print(f"Age: {self.age}")
         print(f"Gender: {self.gender}")
         print(f"Phone Number: {self.phone}")
+        print(f"Coach Type: {self.coach_type}")
 # The Passenger class has a method called display_info, which prints out the name, age, gender, and phone number of the passenger.
 
 
@@ -194,7 +196,10 @@ else:
                 phone = input("Phone Number: ")
                 if not phone or len(phone) != 10 or not phone.isdigit():
                     raise ValueError("Invalid Phone Number")
-                passenger = Passenger(name, age, gender, phone)
+                coach_type = input("Coach Type (Sleeper/Non-Sleeper): ").strip().lower()
+                if coach_type not in ["sleeper", "non-sleeper"]:
+                        raise ValueError("Invalid Coach Type. Choose 'Sleeper' or 'Non-Sleeper'.")
+                passenger = Passenger(name, age, gender, phone,coach_type.capitalize())
                 passengers.append(passenger)
                 break
             except ValueError as e:
